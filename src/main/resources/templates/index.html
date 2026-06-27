@@ -1,13 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Lista de Contactos</title>
 </head>
 <body>
 
-<h1>Lista de contactos</h1>
-<a href="/nuevo">Añadir contacto</a>
+	<div th:if="${msgExito != null}">[[${msgExito}]</div>
 
+	<h1>Lista de contactos</h1>
+	<a href="/nuevo">Añadir contacto</a>
+
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Celular</th>
+				<th>Email</th>
+				<th>F.Nacimiento</th>
+				<th>F.Registro</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="contacto : ${contactos}">
+				<td th:text="${contacto.id}"></td>
+				<td th:text="${contacto.nombre}"></td>
+				<td th:text="${contacto.celular}"></td>
+				<td th:text="${contacto.email}"></td>
+				<td th:text="${contacto.fechaNacimiento}"></td>
+				<td th:text="${contacto.fechaRegistro}"></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 </html>

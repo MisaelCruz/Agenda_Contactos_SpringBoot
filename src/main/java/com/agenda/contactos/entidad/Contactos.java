@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 
 @Entity
 public class Contactos {
@@ -66,6 +67,11 @@ public class Contactos {
 
 	public void setFechaRegistro(LocalDateTime fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
+	}
+	
+	@PrePersist
+	public void asignarFechaRegistro() {
+		fechaRegistro = LocalDateTime.now();
 	}
 
 	public Contactos(Integer id, String nombre, String email, String celular, LocalDate fechaNacimiento,
