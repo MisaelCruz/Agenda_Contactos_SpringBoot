@@ -6,22 +6,27 @@
 </head>
 <body>
 	<h3>Registro de contactos</h3>
-	<form action="" method="post" th:object="${contacto}">
+	<form th:action="@{/nuevo}" method="post" th:object="${contacto}">
 		<div>
-			<label for="nombre">Nombre: </label> <input id="nombre" type="text"
-				placeholder="Digite su nombre " th:field="*{nombre}">
+			<label for="nombre">Nombre: </label> 
+			<input id="nombre" type="text" placeholder="Digite su nombre " th:field="*{nombre}">
+				
+			<div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
 		</div>
 		<div>
-			<label for="Celular">Celular: </label> <input id="celular"
-				type="text" placeholder="Digite su Celular " th:field="*{nombre}">
+			<label for="Celular">Celular: </label> 
+			<input id="celular" type="text" placeholder="Digite su Celular " th:field="*{celular}">
+			<div th:if="${#fields.hasErrors('celular')}" th:errors="*{celular}"></div>
 		</div>
 		<div>
-			<label for="Email">Email: </label> <input id="email" type="email"
-				placeholder="Digite su Email " th:field="*{email}">
+			<label for="Email">Email: </label> 
+			<input id="email" type="email" placeholder="Digite su Email " th:field="*{email}">
+			<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
 		</div>
 		<div>
 			<label for="fechaNacimiento">Fecha nacimiento: </label> 
 			<input id="fechaNacimiento" type="date" th:field="*{fechaNacimiento}">
+			<div th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></div>
 		</div>
 
 		<button>Guardar</button>

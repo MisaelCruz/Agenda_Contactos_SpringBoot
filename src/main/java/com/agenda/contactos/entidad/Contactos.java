@@ -3,11 +3,19 @@ package com.agenda.contactos.entidad;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 
 @Entity
 public class Contactos {
@@ -15,9 +23,16 @@ public class Contactos {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@NotBlank(message = "Debe ingresar su nombre")
 	private String nombre;
+	@NotEmpty(message = "Debe ingresar su email")
+	@Email
 	private String email;
+	@NotBlank(message = "Debe ingresar su celular")
 	private String celular;
+	@DateTimeFormat(iso = ISO.DATE)
+	@Past
+	@NotNull(message = "Debe ingresar su fecha de nacimiento")
 	private LocalDate fechaNacimiento;
 	private LocalDateTime fechaRegistro;
 

@@ -6,7 +6,7 @@
 </head>
 <body>
 
-	<div th:if="${msgExito != null}">[[${msgExito}]</div>
+	<div th:if="${msgExito != null}" th:text="${msgExito}"></div>
 
 	<h1>Lista de contactos</h1>
 	<a href="/nuevo">Añadir contacto</a>
