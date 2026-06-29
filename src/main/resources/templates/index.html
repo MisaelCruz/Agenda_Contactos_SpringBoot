@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Lista de Contactos</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
 </head>
 <body>
 
@@ -28,11 +33,18 @@
 				<td th:text="${contacto.nombre}"></td>
 				<td th:text="${contacto.celular}"></td>
 				<td th:text="${contacto.email}"></td>
-				<td th:text="${contacto.fechaNacimiento}"></td>
-				<td th:text="${contacto.fechaRegistro}"></td>
-				<td></td>
+				<td
+					th:text="${#temporals.format(contacto.fechaNacimiento,'dd/MM/YYYY')}"></td>
+				<td
+					th:text="${#temporals.format(contacto.fechaRegistro,'dd/MM/YYYY hh:mm a')}"></td>
+				<td><a th:href="@{/{id}/editar(id=${contacto.id})}"> Editar</a>
+				</td>
 			</tr>
 		</tbody>
 	</table>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
 </body>
 </html>
