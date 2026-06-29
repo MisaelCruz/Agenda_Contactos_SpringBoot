@@ -81,4 +81,13 @@ public class ContactoControlador {
 	    redirect.addFlashAttribute("msgExito", "El contacto ha sido actualizado correctamente");
 	    return "redirect:/";
 	}
+	
+	@PostMapping("/{id}/eliminar")
+	public String eliminarContacto(@PathVariable Integer id, RedirectAttributes redirect) {
+		Contactos contacto = contactoRepositorio.findById(id).orElseThrow(() ->
+				new IllegalArgumentException("ID de contacto invalido: " + id));
+		contactoRepositorio.delete(contacto);
+		redirect.addFlashAttribute("msgExito", "El contacto ha sido eliminado correctamente");
+		return "redirect:/";
+	}
 }
