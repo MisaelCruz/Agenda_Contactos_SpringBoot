@@ -8,6 +8,7 @@
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
 <body>
 	<div class="row justify-content-center">
@@ -20,7 +21,7 @@
                  : @{/{id}/editar(id=${contacto.id})}"
 				method="post">
 				<input type="hidden" th:field="*{id}">
-				<div>
+				<div class="mb-3">
 					<label for="nombre">Nombre: </label> <input id="nombre" type="text"
 						placeholder="Digite su nombre " th:field="*{nombre}"
 						class="form-control" th:errorClass="is-invalid">
@@ -28,21 +29,21 @@
 					<div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"
 						class="invalid-feedback"></div>
 				</div>
-				<div>
+				<div class="mb-3">
 					<label for="Celular">Celular: </label> <input id="celular"
 						type="text" placeholder="Digite su Celular " th:field="*{celular}"
 						class="form-control" th:errorClass="is-invalid">
 					<div th:if="${#fields.hasErrors('celular')}" th:errors="*{celular}"
 						class="invalid-feedback"></div>
 				</div>
-				<div>
+				<div class="mb-3">
 					<label for="Email">Email: </label> <input id="email" type="email"
 						placeholder="Digite su Email " th:field="*{email}"
 						class="form-control" th:errorClass="is-invalid">
 					<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
 						class="invalid-feedback"></div>
 				</div>
-				<div>
+				<div class="mb-3">
 					<label for="fechaNacimiento">Fecha nacimiento: </label> <input
 						id="fechaNacimiento" type="date" th:field="*{fechaNacimiento}"
 						class="form-control" th:errorClass="is-invalid">
@@ -51,8 +52,8 @@
 				</div>
 
 				<div class="text-end">
-					<button class="btn btn-success">Guardar</button>
-					<a href="/" class="btn tbn-light ms-2">Cancelar</a>
+					<button class="btn btn-success"><i class="fas fa-save"></i>&nbsp;Guardar</button>
+					<a href="/" class="btn tbn-light ms-2"><i class="fas fa-backward"></i>&nbsp;Cancelar</a>
 				</div>
 			</form>
 		</div>
