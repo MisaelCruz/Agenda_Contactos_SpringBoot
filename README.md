@@ -1,6 +1,11 @@
-# Agenda de Contactos - Spring Boot 📑
+# Agenda de Contactos - Spring Boot
 
 Aplicación web para la gestión y administración de contactos, desarrollada para dominar la integración de capas, validaciones del servidor y persistencia de datos en el ecosistema de Java.
+
+---
+
+## Demostración Visual
+![Demostración de la Agenda](src/agenda.gif)
 
 ---
 
